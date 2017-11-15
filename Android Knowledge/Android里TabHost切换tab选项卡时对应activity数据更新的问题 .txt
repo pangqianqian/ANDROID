@@ -1,0 +1,16 @@
+在android中，使用tabHost的时候，如果tab被点击，该tab所对应的activity被加载了，从别的tab切换回来的时候，activity不会再次被创建了（onCreate），所以要想每次点击tab都刷新activity，有如下方法：
+方法1 把要刷新的对象添加到onresume
+1 @Override
+2 public void onResume() {
+3 super.onResume();
+4 //代码
+5 }
+每次切换tab，该activity会调用次方法onresume 方法
+
+但是这个方法有个问题，如果在此方法中加载下个activity，在这里，我们起名叫activity2。当activity2结束时，调用finish()方法，此时tab所对应的那个activity仍然会执行onResume()方法，重新刷新数据。
+如果想避免这种情况，使用方法2：
+tabHost.addTab(tabHost.newTabSpec(0 + "").setIndicator(tv1).setContent(new Intent(this, NewsActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
+tabHost.addTab(tabHost.newTabSpec(1 + "").setIndicator(tv2).setContent(new Intent(this, VideoActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
+
+使用
+.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)就可以了。
