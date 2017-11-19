@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pangqianqian.openbrower.MainActivity"
+    android:background="@drawable/bayman"
+   >
+
+    <EditText
+        android:id="@+id/et_uri"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="请输入网址："
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="10dp"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/btn_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击进入"
+        android:layout_below="@id/et_uri"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="50dp" />
+
+
+</RelativeLayout>
